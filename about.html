@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Zoya Software Engineering University</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        uniBlue: {
+                            DEFAULT: '#0F172A',
+                            light: '#1E293B',
+                            dark: '#020617'
+                        },
+                        uniGold: {
+                            DEFAULT: '#D97706',
+                            light: '#F59E0B',
+                            dark: '#B45309'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body
+    class="bg-slate-50 text-slate-800 font-sans antialiased dark:bg-uniBlue-dark dark:text-slate-200 min-h-screen flex flex-col transition-colors duration-300">
+
+    <!-- TOP NAVBAR -->
+    <header
+        class="bg-uniBlue text-white py-4 px-6 shadow-md dark:bg-slate-900 border-b border-slate-800 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <i class="fa-solid fa-code text-2xl text-uniGold"></i>
+                <span class="font-bold text-uniGold text-sm uppercase">Zoya Software Engineering University</span>
+            </div>
+
+            <!-- Navigation Links & Theme Toggle -->
+            <nav class="hidden md:flex items-center space-x-6 text-sm font-medium">
+                <a href="index.html" class="hover:text-uniGold transition">Home</a>
+                <a href="about.html" class="text-uniGold font-semibold border-b-2 border-uniGold pb-1">About Us</a>
+                <a href="Student Portal.html" class="hover:text-uniGold transition">Student Portal</a>
+            </nav>
+
+            <div class="flex items-center space-x-4">
+                <button id="themeToggle" class="text-slate-400 hover:text-uniGold transition">
+                    <i class="fa-solid fa-moon dark:hidden text-lg"></i>
+                    <i class="fa-solid fa-sun hidden dark:inline text-lg"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="bg-gradient-to-r from-uniBlue via-uniBlue-light to-slate-900 text-white py-16 px-6 text-center">
+        <div class="max-w-3xl mx-auto">
+            <span
+                class="text-1xl font-bold uppercase tracking-widest text-uniGold bg-uniGold/10 px-5 py-1.5 rounded-full">Empowering
+                Innovation</span>
+            <h1 class="text-3xl md:text-5xl font-bold mt-4 leading-tight">About Our University</h1>
+            <p class="text-sm md:text-base text-slate-400 mt-4 max-w-2xl mx-auto leading-relaxed">
+                Zoya Software Engineering University (ZSEU) Is Pakistan's Premier Institute Dedicated Solely To Shaping The Next Generation Of Tech Leaders, Software Architects, And Innovators.
+            </p>
+        </div>
+    </section>
+
+    <!-- THE FOUNDER'S INSPIRING JOURNEY SECTION -->
+    <section class="py-16 px-6 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Text Content -->
+        <div class="lg:col-span-7 space-y-6">
+            <div
+                class="inline-flex items-center gap-2 bg-amber-500/10 text-uniGold px-5 py-1 rounded-md text-xs font-semibold">
+                <i class="fa-solid fa-heart"></i> The Visionary Behind ZSEU
+            </div>
+            <h2 class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white leading-tight">
+                From Humble Beginnings to a Tech Empire
+            </h2>
+            <p class="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                Zoya Software Engineering University Is Not Just An Educational Institution; It Is The Realization Of A
+                Lifelong Dream Of An Extraordinary Woman. Born Into A Poor Family In Pakistan, She Faced Countless
+                Socio-Economic Hurdles, But Her Relentless Passion For Technology Led Her To The United Kingdom
+                , Where She Completed Her Advanced Degrees In Software Engineering.
+
+            </p>
+            <p class="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                While Studying Abroad, Her Dream Was Always Clear: To Return To Her Homeland And Build A World-Class
+                Tech University For Youth Who Lack Resources But Possess Immense Talent. Through Pure Hard Work,
+                Dedication, And Unshakeable Resilience, Her Dream Finally Became A Reality In 2016 When <U class="text-uniGold font-bold">ZSEU</U> Opened
+                Its Doors.
+
+            </p>
+            <blockquote
+                class="border-l-4 border-uniGold bg-slate-100 dark:bg-slate-800 p-4 rounded-r-xl  text-xs text-slate-700 dark:text-slate-300">
+                "Your background does not define your future. Coding is the ultimate equalizer; if you can think, you
+                can build an empire."
+                <span class="block font-bold mt-2 not-italic text-[16px] text-uniGold"> Chancellor & Founder - 
+                    ZSEU</span>
+            </blockquote>
+            <p class="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                Today, She Has Built An Educational Empire That Mentors Thousands Of Students Annually, Bridging The Gap
+                Between Pakistan's Local Talent And The Global Software Industry.
+
+            </p>
+        </div>
+
+        <!-- Graphic Placeholder Display Box -->
+        <div
+            class="lg:col-span-5 bg-white dark:bg-uniBlue p-8 rounded-3xl border border-slate-200/60 dark:border-slate-800 shadow-sm text-center space-y-4">
+            <div
+                class="w-28 h-28 bg-uniGold/10 text-uniGold rounded-full flex items-center justify-center mx-auto text-4xl shadow-inner">
+                <i class="fa-solid fa-building-columns"></i>
+            </div>
+            <h3 class="font-bold text-lg text-slate-900 dark:text-white">Established 2016</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+                A Decade Of Academic Excellence, Starting From A Single Computer Lab To A Sprawling Modern Ecosystem.
+            </p>
+            <div class="grid grid-cols-2 gap-4 pt-4 border-t border-slate-100 dark:border-slate-800">
+                <div>
+                    <span class="block text-xl font-bold text-uniGold">5,000+</span>
+                    <span class="text-[10px] uppercase font-medium text-slate-400">Alumni Globally</span>
+                </div>
+                <div>
+                    <span class="block text-xl font-bold text-uniGold">94%</span>
+                    <span class="text-[10px] uppercase font-medium text-slate-400">Employment Rate</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UNIVERSITY CORE VALUES (GRID) -->
+    <section class="bg-white dark:bg-uniBlue py-16 px-6 border-y border-slate-200/60 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-xl mx-auto mb-12">
+                <h2
+                    class="text-2xl font-bold text-slate-900 dark:text-white uppercase tracking-wide text-xs text-uniGold mb-2">
+                    Our Pillars</h2>
+                <p class="text-xl md:text-2xl font-bold text-uniGold">What Makes <U>ZSEU</U> Stand Out</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Value 1 -->
+                <div
+                    class="p-6 bg-slate-50 dark:bg-slate-800/40 rounded-2xl border border-slate-100 dark:border-slate-800/60">
+                    <div class="text-xl text-uniGold mb-3"><i class="fa-solid fa-laptop-code"></i></div>
+                    <h3 class="font-bold text-sm text-slate-900 dark:text-white mb-2">100% Practical Learning</h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                        We Don't Just Teach From Old Textbooks. Our Curriculum Is Strictly Project-Based, Aligned With
+                        Current UK And Global Industry Standards.
+                    </p>
+                </div>
+                <!-- Value 2 -->
+                <div
+                    class="p-6 bg-slate-50 dark:bg-slate-800/40 rounded-2xl border border-slate-100 dark:border-slate-800/60">
+                    <div class="text-xl text-uniGold mb-3"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+                    <h3 class="font-bold text-sm text-slate-900 dark:text-white mb-2">Inclusivity & Scholarships</h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                        Honoring Our Founder’s Background, We Offer Up To 70% Merit And Need-Based Financial Support To
+                        Brilliant Students From Underprivileged Sectors.
+                    </p>
+                </div>
+                <!-- Value 3 -->
+                <div
+                    class="p-6 bg-slate-50 dark:bg-slate-800/40 rounded-2xl border border-slate-100 dark:border-slate-800/60">
+                    <div class="text-xl text-uniGold mb-3"><i class="fa-solid fa-globe"></i></div>
+                    <h3 class="font-bold text-sm text-slate-900 dark:text-white mb-2">Global Connections</h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                       Through International Affiliate Networks, Our Brilliant Minds Get Exclusive Opportunities To
+                        Secure Remote Jobs And Internships In Europe And The United Kingdom
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UNIVERSITY ACCREDITATION & RECOGNITION FAQ -->
+    <section class="py-16 px-6 max-w-4xl mx-auto">
+        <div class="text-center mb-10">
+            <h2 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white">Frequently Asked Questions</h2>
+            <p class="text-xs text-slate-400 mt-1">Everything You Need To Know About ZSEU Credentials</p>
+        </div>
+
+        <div class="space-y-4">
+            <div
+                class="bg-white dark:bg-uniBlue p-4 rounded-xl border border-slate-200/60 dark:border-slate-800 shadow-sm">
+                <h4 class="font-bold text-xs text-slate-900 dark:text-white mb-1">Is ZSEU recognized By The Higher
+                    Education Commission (HEC)?</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Yes, Zoya Software Engineering
+                    University  Is Fully Recognized By HEC Pakistan And All Degree Streams Are Accredited By The National
+                    Computing Education Accreditation Council (NCEAC).</p>
+            </div>
+
+            <div
+                class="bg-white dark:bg-uniBlue p-4 rounded-xl border border-slate-200/60 dark:border-slate-800 shadow-sm">
+                <h4 class="font-bold text-xs text-slate-900 dark:text-white mb-1">Does The University Offer Evening
+                    Classes For Working Professionals?</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Yes, We Provide Flexible Executive Weekend And Evening Batches Specifically For Software Engineering And Data Science Modules.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER STRIP -->
+    <footer class="bg-uniBlue text-slate-500 py-6 text-center text-xs mt-auto border-t border-slate-900">
+        <p>&copy; 2026 Zoya Software Engineering University | Built with Passion & Tech Excellence.</p>
+    </footer>
+
+    <!-- INTERACTIVITY HANDLER -->
+    <script>
+        // Theme Toggle Setup
+        const themeToggle = document.getElementById('themeToggle');
+
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    </script>
+</body>
+
+</html>

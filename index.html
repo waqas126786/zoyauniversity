@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoya Software Engineering University</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        uniBlue: {
+                            DEFAULT: '#0F172A', // Deep Premium Blue
+                            light: '#1E293B',
+                            dark: '#020617'
+                        },
+                        uniGold: {
+                            DEFAULT: '#D97706', // Premium Amber/Gold
+                            light: '#F59E0B',
+                            dark: '#B45309'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar for news ticker */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #D97706;
+            border-radius: 10px;
+        }
+
+        /* Sidebar Transition Smoothness */
+        .sidebar-transition {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-slate-50 text-slate-800 font-sans antialiased dark:bg-uniBlue-dark dark:text-slate-200 min-h-screen flex flex-col transition-colors duration-300">
+
+    <div class="bg-uniBlue-dark text-white text-xs py-2 px-4 border-b border-slate-800 z-50 relative">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center space-x-6">
+                <a href="admission.html" class="hover:text-uniGold transition"><i
+                        class="fa-solid fa-graduation-cap text-uniGold mr-1"></i> Admissions</a>
+                <a href="#" class="hover:text-uniGold transition"><i
+                        class="fa-solid fa-file-invoice text-uniGold mr-1"></i> Examinations</a>
+                <a href="Student Portal.html" class="hover:text-uniGold transition"><i
+                        class="fa-solid fa-user-graduate text-uniGold mr-1"></i> Student Portal</a>
+                <a href="#" class="hover:text-uniGold transition"><i class="fa-solid fa-phone text-uniGold mr-1"></i>
+                    Contact</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="flex items-center space-x-3 border-r border-slate-700 pr-4">
+                    <a href="#" class="hover:text-uniGold transition"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="hover:text-uniGold transition"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="hover:text-uniGold transition"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#" class="hover:text-uniGold transition"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+                <button id="darkModeToggle"
+                    class="flex items-center space-x-1 bg-slate-800 dark:bg-slate-700 px-2 py-1 rounded-md text-uniGold hover:bg-slate-700 dark:hover:bg-slate-600 transition">
+                    <i class="fa-solid fa-moon dark:hidden"></i>
+                    <i class="fa-solid fa-sun hidden dark:inline"></i>
+                    <span class="text-[12px] uppercase tracking-wider font-semibold">Theme</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <header
+        class="bg-white dark:bg-uniBlue text-slate-900 dark:text-white sticky top-0 z-40 shadow-md transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+
+            <a href="index.html" class="flex items-center space-x-3 group">
+                <div
+                    class="w-12 h-12 bg-uniBlue dark:bg-uniGold text-uniGold dark:text-uniBlue flex items-center justify-center rounded-full shadow-inner transform group-hover:rotate-6 transition duration-300">
+                    <i class="fa-solid fa-university text-2xl"></i>
+                </div>
+                <div>
+                    <span
+                        class="block font-bold text-lg md:text-xl tracking-tight text-uniBlue dark:text-white uppercase">Z
+                        S E U</span>
+                    <span class="block text-xs text-uniGold font-semibold tracking-widest uppercase">University Of
+                        Lahore</span>
+                </div>
+            </a>
+
+            <nav class="hidden lg:flex items-center space-x-1 font-medium text-sm">
+
+                <div class="relative group/nav">
+                    <button
+                        class="px-3 py-2 rounded-md hover:bg-slate-100 dark:hover:bg-uniBlue-light flex items-center space-x-1 transition">
+                        <span>About Us</span> <i
+                            class="fa-solid fa-chevron-down text-[10px] text-slate-400 group-hover/nav:rotate-180 transition-transform"></i>
+                    </button>
+                    <div
+                        class="absolute left-0 mt-2 w-56 bg-white dark:bg-uniBlue-light border border-slate-100 dark:border-slate-700 rounded-lg shadow-xl opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-200 z-50 transform translate-y-2 group-hover/nav:translate-y-0">
+                        <div class="p-2 space-y-1">
+                            <a href="about.html"
+                                class="block px-4 py-2 text-sm rounded-md hover:bg-slate-50 dark:hover:bg-uniBlue text-slate-700 dark:text-slate-200">Our
+                                History</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-sm rounded-md hover:bg-slate-50 dark:hover:bg-uniBlue text-slate-700 dark:text-slate-200">VC
+                                Message</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-sm rounded-md hover:bg-slate-50 dark:hover:bg-uniBlue text-slate-700 dark:text-slate-200">Administration</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative group/nav">
+                    <button
+                        class="px-3 py-2 rounded-md hover:bg-slate-100 dark:hover:bg-uniBlue-light flex items-center space-x-1 transition">
+                        <span>Academics</span> <i
+                            class="fa-solid fa-chevron-down text-[10px] text-slate-400 group-hover/nav:rotate-180 transition-transform"></i>
+                    </button>
+                    <div
+                        class="absolute left-0 mt-2 w-56 bg-white dark:bg-uniBlue-light border border-slate-100 dark:border-slate-700 rounded-lg shadow-xl opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-200 z-50 transform translate-y-2 group-hover/nav:translate-y-0">
+                        <div class="p-2 space-y-1">
+                            <a href="#"
+                                class="block px-4 py-2 text-sm rounded-md hover:bg-slate-50 dark:hover:bg-uniBlue text-slate-700 dark:text-slate-200">Faculties</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-sm rounded-md hover:bg-slate-50 dark:hover:bg-uniBlue text-slate-700 dark:text-slate-200">Departments</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-sm rounded-md hover:bg-slate-50 dark:hover:bg-uniBlue text-slate-700 dark:text-slate-200">Degree
+                                Programs</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative group/nav">
+                    <button
+                        class="px-3 py-2 rounded-md hover:bg-slate-100 dark:hover:bg-uniBlue-light flex items-center space-x-1 transition">
+                        <span>Admissions</span> <i
+                            class="fa-solid fa-chevron-down text-[10px] text-slate-400 group-hover/nav:rotate-180 transition-transform"></i>
+                    </button>
+                    <div
+                        class="absolute left-0 mt-2 w-56 bg-white dark:bg-uniBlue-light border border-slate-100 dark:border-slate-700 rounded-lg shadow-xl opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-200 z-50 transform translate-y-2 group-hover/nav:translate-y-0">
+                        <div class="p-2 space-y-1">
+                            <a href="#"
+                                class="block px-4 py-2 text-sm rounded-md hover:bg-slate-50 dark:hover:bg-uniBlue text-slate-700 dark:text-slate-200">How
+                                to Apply</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-sm rounded-md hover:bg-slate-50 dark:hover:bg-uniBlue text-slate-700 dark:text-slate-200">Fee
+                                Structure</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-sm rounded-md hover:bg-slate-50 dark:hover:bg-uniBlue text-slate-700 dark:text-slate-200">Eligibility
+                                Criteria</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative group/nav">
+                    <button
+                        class="px-3 py-2 rounded-md hover:bg-slate-100 dark:hover:bg-uniBlue-light flex items-center space-x-1 transition">
+                        <span>Results</span> <i
+                            class="fa-solid fa-chevron-down text-[10px] text-slate-400 group-hover/nav:rotate-180 transition-transform"></i>
+                    </button>
+                    <div
+                        class="absolute left-0 mt-2 w-56 bg-white dark:bg-uniBlue-light border border-slate-100 dark:border-slate-700 rounded-lg shadow-xl opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-200 z-50 transform translate-y-2 group-hover/nav:translate-y-0">
+                        <div class="p-2 space-y-1">
+                            <a href="#"
+                                class="block px-4 py-2 text-sm rounded-md hover:bg-slate-50 dark:hover:bg-uniBlue text-slate-700 dark:text-slate-200">Mid
+                                Term 2026</a>
+                            <a href="All result.pdf"
+                                class="block px-4 py-2 text-sm rounded-md hover:bg-slate-50 dark:hover:bg-uniBlue text-slate-700 dark:text-slate-200">Final
+                                2026</a>
+                        </div>
+                    </div>
+                </div>
+
+            </nav>
+
+            <div class="hidden md:flex items-center relative w-64 max-w-xs">
+                <input type="text" placeholder="Search website..."
+                    class="w-full bg-slate-100 dark:bg-uniBlue-light placeholder-slate-400 dark:placeholder-slate-500 text-sm py-2 pl-4 pr-10 rounded-full border border-transparent focus:border-uniGold focus:outline-none transition">
+                <i class="fa-solid fa-magnifying-glass absolute right-3 text-slate-400 dark:text-slate-500"></i>
+            </div>
+
+            <div class="flex items-center space-x-2 lg:hidden">
+                <button id="mobileSearchToggle" class="p-2 text-slate-600 dark:text-white focus:outline-none md:hidden">
+                    <i class="fa-solid fa-magnifying-glass text-lg"></i>
+                </button>
+                <button id="mobileMenuToggle" class="p-2 text-slate-600 dark:text-white focus:outline-none">
+                    <i id="hamburgerIcon" class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+
+        </div>
+
+        <div id="mobileSearchBox"
+            class="hidden md:hidden px-4 pb-3 border-t border-slate-100 dark:border-slate-800 pt-2 bg-slate-50 dark:bg-uniBlue-light">
+            <div class="relative w-full">
+                <input type="text" placeholder="Search website..."
+                    class="w-full bg-white dark:bg-uniBlue placeholder-slate-400 text-sm py-2 pl-4 pr-10 rounded-lg border border-slate-200 dark:border-slate-700 focus:outline-none">
+                <i class="fa-solid fa-magnifying-glass absolute right-3 top-3 text-slate-400"></i>
+            </div>
+        </div>
+
+        <div id="mobileMenu"
+            class="hidden lg:hidden border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-uniBlue px-4 py-4 space-y-3 shadow-inner">
+            <div>
+                <button
+                    class="mobile-dropdown-btn flex justify-between items-center w-full font-semibold py-2 text-slate-700 dark:text-slate-200">
+                    <span>About Us</span> <i class="fa-solid fa-chevron-down text-xs transition-transform"></i>
+                </button>
+                <div class="hidden pl-4 mt-1 space-y-1 border-l-2 border-uniGold">
+                    <a href="#" class="block py-1.5 text-sm text-slate-600 dark:text-slate-400">Our History</a>
+                    <a href="#" class="block py-1.5 text-sm text-slate-600 dark:text-slate-400">VC Message</a>
+                    <a href="#" class="block py-1.5 text-sm text-slate-600 dark:text-slate-400">Administration</a>
+                </div>
+            </div>
+            <div>
+                <button
+                    class="mobile-dropdown-btn flex justify-between items-center w-full font-semibold py-2 text-slate-700 dark:text-slate-200">
+                    <span>Academics</span> <i class="fa-solid fa-chevron-down text-xs transition-transform"></i>
+                </button>
+                <div class="hidden pl-4 mt-1 space-y-1 border-l-2 border-uniGold">
+                    <a href="#" class="block py-1.5 text-sm text-slate-600 dark:text-slate-400">Faculties</a>
+                    <a href="#" class="block py-1.5 text-sm text-slate-600 dark:text-slate-400">Departments</a>
+                    <a href="#" class="block py-1.5 text-sm text-slate-600 dark:text-slate-400">Degree Programs</a>
+                </div>
+            </div>
+            <div>
+                <button
+                    class="mobile-dropdown-btn flex justify-between items-center w-full font-semibold py-2 text-slate-700 dark:text-slate-200">
+                    <span>Admissions</span> <i class="fa-solid fa-chevron-down text-xs transition-transform"></i>
+                </button>
+                <div class="hidden pl-4 mt-1 space-y-1 border-l-2 border-uniGold">
+                    <a href="#" class="block py-1.5 text-sm text-slate-600 dark:text-slate-400">How to Apply</a>
+                    <a href="#" class="block py-1.5 text-sm text-slate-600 dark:text-slate-400">Fee Structure</a>
+                    <a href="#" class="block py-1.5 text-sm text-slate-600 dark:text-slate-400">Eligibility Criteria</a>
+                </div>
+            </div>
+            <div>
+                <button
+                    class="mobile-dropdown-btn flex justify-between items-center w-full font-semibold py-2 text-slate-700 dark:text-slate-200">
+                    <span>Research</span> <i class="fa-solid fa-chevron-down text-xs transition-transform"></i>
+                </button>
+                <div class="hidden pl-4 mt-1 space-y-1 border-l-2 border-uniGold">
+                    <a href="#" class="block py-1.5 text-sm text-slate-600 dark:text-slate-400">Research Journals</a>
+                    <a href="#" class="block py-1.5 text-sm text-slate-600 dark:text-slate-400">Ongoing Projects</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex flex-1 relative overflow-x-hidden">
+
+        <aside id="sideNavbar"
+            class="sidebar-transition fixed lg:sticky top-[113px] sm:top-[77px] lg:top-[73px] left-0 h-[calc(100vh-113px)] lg:h-[calc(100vh-73px)] bg-uniBlue-light dark:bg-slate-900 text-white flex flex-col z-30 shadow-xl w-64 -translate-x-full lg:translate-x-0">
+
+            <button id="sidebarToggle"
+                class="hidden lg:flex absolute -right-4 top-4 bg-uniGold hover:bg-uniGold-dark text-white rounded-full w-8 h-8 items-center justify-center border-2 border-white dark:border-uniBlue shadow-md focus:outline-none">
+                <i id="sidebarIcon" class="fa-solid fa-chevron-left text-xs transition-transform"></i>
+            </button>
+
+            <div class="p-4 flex-1 flex flex-col justify-between overflow-y-auto">
+                <div class="space-y-2">
+                    <p id="sideHeader" class="text-[10px] font-bold uppercase tracking-widest text-slate-400 px-3 mb-4">
+                        Quick Campuses Utility</p>
+
+                    <a href="#"
+                        class="flex items-center space-x-3 px-3 py-3 rounded-lg hover:bg-uniBlue group transition">
+                        <i
+                            class="fa-solid fa-id-card text-uniGold w-5 text-center text-lg group-hover:scale-110 transition-transform"></i>
+                        <span class="sidebar-text text-sm font-medium transition-opacity duration-200">Student
+                            Dashboard</span>
+                    </a>
+                    <a href="#"
+                        class="flex items-center space-x-3 px-3 py-3 rounded-lg hover:bg-uniBlue group transition">
+                        <i
+                            class="fa-solid fa-chalkboard-user text-uniGold w-5 text-center text-lg group-hover:scale-110 transition-transform"></i>
+                        <span class="sidebar-text text-sm font-medium transition-opacity duration-200">Faculty
+                            Portal</span>
+                    </a>
+                    <a href="#"
+                        class="flex items-center space-x-3 px-3 py-3 rounded-lg hover:bg-uniBlue group transition">
+                        <i
+                            class="fa-solid fa-book-open text-uniGold w-5 text-center text-lg group-hover:scale-110 transition-transform"></i>
+                        <span class="sidebar-text text-sm font-medium transition-opacity duration-200">Library
+                            (E-Books)</span>
+                    </a>
+                    <a href="#"
+                        class="flex items-center space-x-3 px-3 py-3 rounded-lg hover:bg-uniBlue group transition">
+                        <i
+                            class="fa-solid fa-users-rectangle text-uniGold w-5 text-center text-lg group-hover:scale-110 transition-transform"></i>
+                        <span class="sidebar-text text-sm font-medium transition-opacity duration-200">Alumni
+                            Association</span>
+                    </a>
+                    <a href="#"
+                        class="flex items-center space-x-3 px-3 py-3 rounded-lg hover:bg-uniBlue group transition">
+                        <i
+                            class="fa-solid fa-cloud-arrow-down text-uniGold w-5 text-center text-lg group-hover:scale-110 transition-transform"></i>
+                        <span class="sidebar-text text-sm font-medium transition-opacity duration-200">Downloads
+                            (Forms)</span>
+                    </a>
+                </div>
+
+                <div class="border-t border-slate-800 pt-4 text-center">
+                    <span class="sidebar-text text-xs text-slate-400 block">System Server State: <span
+                            class="text-emerald-500 font-semibold">Online</span></span>
+                </div>
+            </div>
+        </aside>
+
+        <button id="mobileSidebarToggle"
+            class="lg:hidden fixed bottom-6 right-6 bg-uniGold text-white w-12 h-12 rounded-full flex items-center justify-center shadow-2xl z-40 focus:outline-none">
+            <i class="fa-solid fa-layer-group text-lg"></i>
+        </button>
+
+        <main class="flex-1 w-full bg-transparent">
+
+            <section class="relative bg-uniBlue-dark text-white overflow-hidden h-[460px] md:h-[520px]">
+
+                <div id="carouselTrack" class="relative h-full w-full">
+                    <div class="slideshow-container">
+
+                        <div class="mySlides fade">
+                            <div class="numbertext">1 / 3</div>
+                            <img src="Main page.png" style="width:100%">
+                            <div class="text">Caption Text</div>
+                        </div>
+
+                        <div class="mySlides fade">
+                            <div class="numbertext">2 / 3</div>
+                            <img src="Main page.png" style="width:100%">
+                            <div class="text">Caption Two</div>
+                        </div>
+
+                        <div class="mySlides fade">
+                            <div class="numbertext">3 / 3</div>
+                            <img src="Main page.png" style="width:100%">
+                            <div class="text">Caption Three</div>
+                        </div>
+
+                        <!-- Next and previous buttons -->
+                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                    </div>
+                    <br>
+
+                    <!-- The dots/circles -->
+                    <div style="text-align:center">
+                        <span class="dot" onclick="currentSlide(1)"></span>
+                        <span class="dot" onclick="currentSlide(2)"></span>
+                        <span class="dot" onclick="currentSlide(3)"></span>
+                    </div>
+
+                    <div
+                        class="carousel-slide absolute inset-0 opacity-100 transition-opacity duration-700 ease-in-out">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-r from-uniBlue-dark via-uniBlue-dark/40 to-transparent z-10">
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1600&q=80"
+                            alt="University Campus" class="w-full h-full object-cover">
+                        <div
+                            class="absolute inset-0 z-20 max-w-7xl mx-auto px-6 md:px-12 flex flex-col justify-center h-full max-w-2xl">
+                            <span
+                                class="text-uniGold font-semibold text-xs md:text-sm tracking-widest uppercase mb-2 block">Welcome
+                                to Zoya Software University</span>
+                            <h1 class="text-3xl md:text-5xl font-bold tracking-tight mb-4 leading-tight">Engineering Hub
+                                <span class="text-uniGold">Of Lahore</span></h1>
+                            <p class="text-slate-300 text-sm md:text-base mb-6 max-w-lg">Ranked among top centers of
+                                modern excellence, providing accessible values-driven higher research and global
+                                leadership standards.</p>
+                            <div class="flex flex-wrap gap-3">
+                                <a href="admission.html"
+                                    class="bg-uniGold hover:bg-uniGold-dark text-white font-medium text-sm px-6 py-3 rounded-lg shadow-lg transition">Apply
+                                    Online 2026</a>
+                                <a href="All result.pdf"
+                                    class="border border-white hover:bg-white hover:text-uniBlue font-medium text-sm px-6 py-3 rounded-lg transition">Result
+                                    2026</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-700 ease-in-out">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-r from-uniBlue-dark via-uniBlue-dark/40 to-transparent z-10">
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1600&q=80"
+                            alt="Students in Library" class="w-full h-full object-cover">
+                        <div
+                            class="absolute inset-0 z-20 max-w-7xl mx-auto px-6 md:px-12 flex flex-col justify-center h-full max-w-2xl">
+                            <span
+                                class="text-uniGold font-semibold text-xs md:text-sm tracking-widest uppercase mb-2 block">Cutting-edge
+                                Technology Infrastructure</span>
+                            <h1 class="text-3xl md:text-5xl font-bold tracking-tight mb-4 leading-tight">World-Class
+                                Research <br>& Innovation Hubs</h1>
+                            <p class="text-slate-300 text-sm md:text-base mb-6 max-w-lg">Discover multi-disciplinary
+                                research initiatives solving modern complex engineering, healthcare, and computational
+                                ecosystem queries.</p>
+                            <div class="flex flex-wrap gap-3">
+                                <a href="#"
+                                    class="bg-uniGold hover:bg-uniGold-dark text-white font-medium text-sm px-6 py-3 rounded-lg shadow-lg transition">Research
+                                    Gateway</a>
+                                <a href="#"
+                                    class="border border-white hover:bg-white hover:text-uniBlue font-medium text-sm px-6 py-3 rounded-lg transition">Explore
+                                    Journals</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20 flex space-x-2">
+                    <button class="carousel-dot w-3 h-3 rounded-full bg-white opacity-100"
+                        onclick="setSlide(0)"></button>
+                    <button class="carousel-dot w-3 h-3 rounded-full bg-white/40 hover:bg-white"
+                        onclick="setSlide(1)"></button>
+                </div>
+            </section>
+
+            <section class="max-w-7xl mx-auto px-4 py-12">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+                    <div
+                        class="lg:col-span-2 bg-white dark:bg-uniBlue rounded-xl shadow-md border border-slate-100 dark:border-slate-800 overflow-hidden flex flex-col">
+                        <div
+                            class="bg-uniBlue text-white dark:bg-slate-900 px-6 py-4 flex justify-between items-center border-b border-slate-800">
+                            <div class="flex items-center space-x-2">
+                                <span class="flex h-3 w-3 relative">
+                                    <span
+                                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-uniGold opacity-75"></span>
+                                    <span class="relative inline-flex rounded-full h-3 w-3 bg-uniGold"></span>
+                                </span>
+                                <h2 class="font-bold tracking-wide uppercase text-sm">University Board Notices</h2>
+                            </div>
+                            <a href="#" class="text-xs text-uniGold hover:underline">View All Notices</a>
+                        </div>
+
+                        <div class="p-6 overflow-y-auto max-h-[340px] custom-scrollbar space-y-4">
+
+                            <div
+                                class="flex gap-4 items-start border-b border-slate-100 dark:border-slate-800 pb-4 last:border-0 last:pb-0 group">
+                                <div class="bg-slate-100 dark:bg-slate-800 rounded-lg p-2 text-center min-w-[60px]">
+                                    <span class="block text-xs uppercase text-slate-500 font-semibold">Nov</span>
+                                    <span class="block text-xl font-bold text-uniBlue dark:text-white">01</span>
+                                </div>
+                                <div>
+                                    <span
+                                        class="inline-block bg-amber-100 dark:bg-amber-950 text-uniGold dark:text-amber-400 text-[10px] font-bold px-2 py-0.5 rounded uppercase mb-1">Admissions</span>
+                                    <a href="#"
+                                        class="block font-semibold text-sm hover:text-uniGold transition text-slate-900 dark:text-white mb-1">Revised
+                                        Merit Criteria Policy Guidelines for Fall Session 2026 intake modules</a>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400">All prospective applicants
+                                        matching basic conditions are requested to track validation rules updates...</p>
+                                </div>
+                            </div>
+
+                            <div
+                                class="flex gap-4 items-start border-b border-slate-100 dark:border-slate-800 pb-4 last:border-0 last:pb-0 group">
+                                <div class="bg-slate-100 dark:bg-slate-800 rounded-lg p-2 text-center min-w-[60px]">
+                                    <span class="block text-xs uppercase text-slate-500 font-semibold">Agust</span>
+                                    <span class="block text-xl font-bold text-uniBlue dark:text-white">10</span>
+                                </div>
+                                <div>
+                                    <span
+                                        class="inline-block bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold px-2 py-0.5 rounded uppercase mb-1">Examinations</span>
+                                    <a href="#"
+                                        class="block font-semibold text-sm hover:text-uniGold transition text-slate-900 dark:text-white mb-1">Official
+                                        Date Sheet Publication: BS & MS Semester System Final Examinations</a>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400">The Controller Office
+                                        announces schedule charts mapping across all standard campus faculties
+                                        configurations...</p>
+                                </div>
+                            </div>
+
+                            <div
+                                class="flex gap-4 items-start border-b border-slate-100 dark:border-slate-800 pb-4 last:border-0 last:pb-0 group">
+                                <div class="bg-slate-100 dark:bg-slate-800 rounded-lg p-2 text-center min-w-[60px]">
+                                    <span class="block text-xs uppercase text-slate-500 font-semibold">Year</span>
+                                    <span class="block text-xl font-bold text-uniBlue dark:text-white">2027</span>
+                                </div>
+                                <div>
+                                    <span
+                                        class="inline-block bg-blue-100 dark:bg-blue-950 text-blue-600 dark:text-blue-400 text-[10px] font-bold px-2 py-0.5 rounded uppercase mb-1">Careers</span>
+                                    <a href="#"
+                                        class="block font-semibold text-sm hover:text-uniGold transition text-slate-900 dark:text-white mb-1">Job
+                                        Vacancies: Assistant Research Officers positions in computing units</a>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400">Applications must be logged
+                                        inside human resources registry along verification criteria documents before
+                                        closing timeline...</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col justify-between space-y-4">
+                        <div
+                            class="bg-gradient-to-br from-uniBlue to-uniBlue-light dark:from-slate-900 dark:to-slate-850 p-6 rounded-xl shadow-md text-white flex-1 flex flex-col justify-center">
+                            <h3 class="text-lg font-bold mb-1 text-white">Online Portal Hub</h3>
+                            <p class="text-xs text-slate-400 mb-6">Access integrated smart services securely.</p>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <a href="admission.html"
+                                    class="flex items-center space-x-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg p-3 transition group">
+                                    <div
+                                        class="w-10 h-10 bg-uniGold rounded-md flex items-center justify-center text-white font-bold text-lg group-hover:scale-105 transition-transform">
+                                        <i class="fa-solid fa-file-signature"></i>
+                                    </div>
+                                    <div>
+                                        <span class="block text-xs font-bold uppercase tracking-wider text-white">Apply
+                                            Now</span>
+                                        <span class="block text-[10px] text-slate-400">Online Admission</span>
+                                    </div>
+                                </a>
+
+                                <a href="All result.pdf"
+                                    class="flex items-center space-x-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg p-3 transition group">
+                                    <div
+                                        class="w-10 h-10 bg-blue-600 rounded-md flex items-center justify-center text-white font-bold text-lg group-hover:scale-105 transition-transform">
+                                        <i class="fa-solid fa-square-poll-vertical"></i>
+                                    </div>
+                                    <div>
+                                        <span
+                                            class="block text-xs font-bold uppercase tracking-wider text-white">Results</span>
+                                        <span class="block text-[10px] text-slate-400">Check Semester Marks</span>
+                                    </div>
+                                </a>
+
+                                <a href="#"
+                                    class="flex items-center space-x-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg p-3 transition group">
+                                    <div
+                                        class="w-10 h-10 bg-emerald-600 rounded-md flex items-center justify-center text-white font-bold text-lg group-hover:scale-105 transition-transform">
+                                        <i class="fa-solid fa-money-check-dollar"></i>
+                                    </div>
+                                    <div>
+                                        <span
+                                            class="block text-xs font-bold uppercase tracking-wider text-white">Challan
+                                            Form</span>
+                                        <span class="block text-[10px] text-slate-400">Download Slips</span>
+                                    </div>
+                                </a>
+
+                                <a href="#"
+                                    class="flex items-center space-x-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg p-3 transition group">
+                                    <div
+                                        class="w-10 h-10 bg-purple-600 rounded-md flex items-center justify-center text-white font-bold text-lg group-hover:scale-105 transition-transform">
+                                        <i class="fa-solid fa-calendar-days"></i>
+                                    </div>
+                                    <div>
+                                        <span
+                                            class="block text-xs font-bold uppercase tracking-wider text-white">Calendar</span>
+                                        <span class="block text-[10px] text-slate-400">Academic Schedule</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="bg-uniGold text-white p-4 rounded-xl flex items-center justify-between shadow-md">
+                            <div class="flex items-center space-x-3">
+                                <i class="fa-solid fa-phone-volume text-2xl animate-bounce"></i>
+                                <div>
+                                    <span class="block font-bold text-sm">Admission Helpline</span>
+                                    <span class="block text-xs opacity-90">+92 (042) 111-999-888</span>
+                                </div>
+                            </div>
+                            <a href="#"
+                                class="bg-white text-uniBlue font-semibold text-xs px-3 py-1.5 rounded-md hover:bg-slate-100 transition shadow">Call</a>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="bg-slate-100 dark:bg-uniBlue-light py-16 transition-colors duration-300">
+                <div class="max-w-7xl mx-auto px-4">
+
+                    <div class="text-center max-w-xl mx-auto mb-12">
+                        <span class="text-uniGold uppercase tracking-widest font-bold text-xs">Academic Units</span>
+                        <h2 class="text-2xl md:text-3xl font-bold tracking-tight mt-1 text-slate-950 dark:text-white">
+                            Explore Academic Faculties</h2>
+                        <div class="w-12 h-1 bg-uniGold mx-auto mt-3 rounded-full"></div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                        <div
+                            class="bg-white dark:bg-uniBlue p-6 rounded-xl shadow-sm hover:shadow-xl border border-slate-200/60 dark:border-slate-800 transform hover:-translate-y-1 transition duration-300 group flex flex-col justify-between">
+                            <div>
+                                <div
+                                    class="w-12 h-12 rounded-lg bg-blue-50 dark:bg-slate-800 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-4 text-xl group-hover:scale-110 transition duration-300">
+                                    <i class="fa-solid fa-laptop-code"></i>
+                                </div>
+                                <h3
+                                    class="font-bold text-lg mb-2 text-slate-900 dark:text-white group-hover:text-uniGold transition">
+                                    Faculty of Computing & IT</h3>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed mb-6">Advancing
+                                    programmatic engineering models across computer systems science, AI frameworks,
+                                    intelligence systems, data processing structures.</p>
+                            </div>
+                            <a href="#"
+                                class="text-xs font-semibold text-uniBlue dark:text-slate-300 group-hover:text-uniGold transition flex items-center mt-auto">
+                                View Departments <i
+                                    class="fa-solid fa-arrow-right-long ml-1 transform group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+
+                        <div
+                            class="bg-white dark:bg-uniBlue p-6 rounded-xl shadow-sm hover:shadow-xl border border-slate-200/60 dark:border-slate-800 transform hover:-translate-y-1 transition duration-300 group flex flex-col justify-between">
+                            <div>
+                                <div
+                                    class="w-12 h-12 rounded-lg bg-amber-50 dark:bg-slate-800 text-uniGold flex items-center justify-center mb-4 text-xl group-hover:scale-110 transition duration-300">
+                                    <i class="fa-solid fa-atom"></i>
+                                </div>
+                                <h3
+                                    class="font-bold text-lg mb-2 text-slate-900 dark:text-white group-hover:text-uniGold transition">
+                                    Faculty of Science</h3>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed mb-6">Pioneering
+                                    breakthrough updates in modern physics, chemical configurations, high mathematics
+                                    matrix analysis, biology research tracks.</p>
+                            </div>
+                            <a href="#"
+                                class="text-xs font-semibold text-uniBlue dark:text-slate-300 group-hover:text-uniGold transition flex items-center mt-auto">
+                                View Departments <i
+                                    class="fa-solid fa-arrow-right-long ml-1 transform group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+
+                        <div
+                            class="bg-white dark:bg-uniBlue p-6 rounded-xl shadow-sm hover:shadow-xl border border-slate-200/60 dark:border-slate-800 transform hover:-translate-y-1 transition duration-300 group flex flex-col justify-between">
+                            <div>
+                                <div
+                                    class="w-12 h-12 rounded-lg bg-purple-50 dark:bg-slate-800 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-4 text-xl group-hover:scale-110 transition duration-300">
+                                    <i class="fa-solid fa-landmark-dome"></i>
+                                </div>
+                                <h3
+                                    class="font-bold text-lg mb-2 text-slate-900 dark:text-white group-hover:text-uniGold transition">
+                                    Faculty of Arts & Humanities</h3>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed mb-6">Cultivating
+                                    rich philosophical paradigms, linguistics mastery platforms, history documentation
+                                    analysis and historical sociological evaluations.</p>
+                            </div>
+                            <a href="#"
+                                class="text-xs font-semibold text-uniBlue dark:text-slate-300 group-hover:text-uniGold transition flex items-center mt-auto">
+                                View Departments <i
+                                    class="fa-solid fa-arrow-right-long ml-1 transform group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <footer class="bg-uniBlue-dark text-slate-400 text-sm border-t border-slate-800 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+            <div>
+                <div class="flex items-center space-x-2 mb-4">
+                    <div
+                        class="w-8 h-8 bg-uniGold rounded-full flex items-center justify-center text-uniBlue font-bold text-base">
+                        <i class="fa-solid fa-university"></i>
+                    </div>
+                    <span class="text-uniGold font-bold tracking-wider">Zoya Software Engineering University</span>
+                </div>
+                <p class="text-xs text-slate-400 leading-relaxed mb-4">Chartered higher educational matrix committed to
+                    crafting absolute industrial engineering excellence, research systems integration, and dynamic
+                    academic leadership.</p>
+                <div class="text-xs text-slate-500">Established Class: 1882 Campus Registry</div>
+            </div>
+
+            <div>
+                <h4
+                    class="text-white font-semibold uppercase tracking-wider text-xs mb-4 border-l-2 border-uniGold pl-3">
+                    Useful Navigation</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="#" class="hover:text-white hover:underline transition">Careers Opportunity Board</a>
+                    </li>
+                    <li><a href="#" class="hover:text-white hover:underline transition">Affiliated Campus Colleges</a>
+                    </li>
+                    <li><a href="#" class="hover:text-white hover:underline transition">Procurement Tenders Panel</a>
+                    </li>
+                    <li><a href="#" class="hover:text-white hover:underline transition">Quality Enhancement Cell
+                            (QEC)</a></li>
+                    <li><a href="#" class="hover:text-white hover:underline transition">ORIC Research Registry</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4
+                    class="text-white font-semibold uppercase tracking-wider text-xs mb-4 border-l-2 border-uniGold pl-3">
+                    Contact Desk</h4>
+                <ul class="space-y-3 text-xs">
+                    <li class="flex items-start space-x-2">
+                        <i class="fa-solid fa-location-dot text-uniGold mt-0.5"></i>
+                        <span>Main Sitarpur Raod, University Area, Lahore, Punjab, Pakistan.</span>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                        <i class="fa-solid fa-phone text-uniGold"></i>
+                        <span>+92-42-99211612</span>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                        <i class="fa-solid fa-envelope text-uniGold"></i>
+                        <span>Zoya.edu.pk</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h4
+                    class="text-white font-semibold uppercase tracking-wider text-xs mb-4 border-l-2 border-uniGold pl-3">
+                    University Bulletin</h4>
+                <p class="text-xs text-slate-400 mb-3">Subscribe to capture semester events updates directly.</p>
+                <form class="space-y-2"
+                    onsubmit="event.preventDefault(); alert('Subscribed to University Newsletters Database.');">
+                    <input type="email" placeholder="Enter registration email..." required
+                        class="w-full bg-slate-900 border border-slate-800 focus:border-uniGold focus:outline-none rounded px-3 py-2 text-xs text-white placeholder-slate-500 transition">
+                    <button type="submit"
+                        class="w-full bg-uniGold hover:bg-uniGold-dark text-white font-medium text-xs py-2 rounded transition">Subscribe
+                        Now</button>
+                </form>
+            </div>
+
+        </div>
+
+        <div class="bg-uniBlue-dark/50 border-t border-slate-900/60 text-slate-500 py-4 px-4 text-xs">
+            <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+                <p>&copy; 2026 Zoya Software Engineering University. Higher Education Commission Authenticated
+                    Portfolio.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="hover:text-slate-300">Privacy Policy Terms</a>
+                    <a href="#" class="hover:text-slate-300">Disclaimer Notes</a>
+                    <a href="#" class="hover:text-slate-300">Sitemap Matrix</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- 1. DARK MODE TOGGLE ENGINE ---
+        const darkModeToggle = document.getElementById('darkModeToggle');
+
+        // Check for client preference store history
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        darkModeToggle.addEventListener('click', () => {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // --- 2. MOBILE MENU & SEARCH TOGGLES ---
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const hamburgerIcon = document.getElementById('hamburgerIcon');
+        const mobileSearchToggle = document.getElementById('mobileSearchToggle');
+        const mobileSearchBox = document.getElementById('mobileSearchBox');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            hamburgerIcon.classList.toggle('fa-bars');
+            hamburgerIcon.classList.toggle('fa-xmark');
+        });
+
+        mobileSearchToggle.addEventListener('click', () => {
+            mobileSearchBox.classList.toggle('hidden');
+        });
+
+        // Mobile Accordeon Dropdowns Selector Loop Logic
+        const mobileDropdownBtns = document.querySelectorAll('.mobile-dropdown-btn');
+        mobileDropdownBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const icon = btn.querySelector('i');
+                const menu = btn.nextElementSibling;
+
+                menu.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+
+        // --- 3. COMPACT COLLAPSIBLE SIDE NAVBAR DESKTOP/MOBILE LOGIC ---
+        const sidebar = document.getElementById('sideNavbar');
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebarIcon = document.getElementById('sidebarIcon');
+        const sideHeader = document.getElementById('sideHeader');
+        const sidebarTexts = document.querySelectorAll('.sidebar-text');
+        const mobileSidebarToggle = document.getElementById('mobileSidebarToggle');
+
+        // Desktop Collapse Flag Controller Tracker state
+        let isCollapsed = false;
+
+        sidebarToggle.addEventListener('click', () => {
+            isCollapsed = !isCollapsed;
+            if (isCollapsed) {
+                // Collapse sidebar look layout properties state mapping
+                sidebar.classList.replace('w-64', 'w-20');
+                sidebarIcon.classList.replace('fa-chevron-left', 'fa-chevron-right');
+                sideHeader.classList.add('hidden');
+                sidebarTexts.forEach(text => text.classList.add('lg:hidden'));
+            } else {
+                // Return expanded properties mapping layout structure state
+                sidebar.classList.replace('w-20', 'w-64');
+                sidebarIcon.classList.replace('fa-chevron-right', 'fa-chevron-left');
+                sideHeader.classList.remove('hidden');
+                sidebarTexts.forEach(text => text.classList.remove('lg:hidden'));
+            }
+        });
+
+        // Mobile side toggle float menu action click event dispatcher rules
+        mobileSidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+        });
+
+        // --- 4. HERO HERO SLIDING CAROUSEL ENGINE ---
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.carousel-dot');
+        const totalSlides = slides.length;
+
+        function setSlide(index) {
+            slides[currentSlideIndex].classList.replace('opacity-100', 'opacity-0');
+            dots[currentSlideIndex].classList.replace('bg-white', 'bg-white/40');
+
+            currentSlideIndex = index;
+
+            slides[currentSlideIndex].classList.replace('opacity-0', 'opacity-100');
+            dots[currentSlideIndex].classList.replace('bg-white/40', 'bg-white');
+        }
+
+        function nextSlide() {
+            let nextIndex = (currentSlideIndex + 1) % totalSlides;
+            setSlide(nextIndex);
+        }
+
+        // Setup Interval standard timing execution looping process rules
+        let carouselInterval = setInterval(nextSlide, 6000);
+
+        // Reset runtime track processing loops manually on active interact steps
+        window.setSlide = function (index) {
+            clearInterval(carouselInterval);
+            setSlide(index);
+            carouselInterval = setInterval(nextSlide, 6000);
+        }
+    </script>
+</body>
+
+</html>

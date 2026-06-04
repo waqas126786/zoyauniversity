@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Admission Application | Apex State University</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        uniBlue: {
+                            DEFAULT: '#0F172A',
+                            light: '#1E293B',
+                            dark: '#020617'
+                        },
+                        uniGold: {
+                            DEFAULT: '#D97706',
+                            light: '#F59E0B',
+                            dark: '#B45309'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased dark:bg-uniBlue-dark dark:text-slate-200 min-h-screen flex flex-col transition-colors duration-300">
+
+    <header class="bg-uniBlue text-white py-4 px-6 shadow-md dark:bg-slate-900 border-b border-slate-800">
+        <div class="max-w-5xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 bg-uniGold text-uniBlue flex items-center justify-center rounded-full font-bold">
+                    <i class="fa-solid fa-university text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg tracking-tight uppercase">zoya Software Engineering University</h1>
+                    <p class="text-[11px] text-uniGold font-semibold tracking-wider uppercase">Admissions Portal 2026</p>
+                </div>
+            </div>
+            <a href="index.html" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 px-3 py-1.5 rounded transition">
+                <i class="fa-solid fa-arrow-left mr-1"></i> Back to Home
+            </a>
+        </div>
+    </header>
+
+    <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-8">
+        
+        <div class="bg-white dark:bg-uniBlue rounded-xl p-6 shadow-sm border border-slate-200/60 dark:border-slate-800 mb-6">
+            <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-2 flex items-center">
+                <i class="fa-solid fa-file-lines text-uniGold mr-2"></i> Application for Admission (2026)
+            </h2>
+            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                Kindly Fill This Form With Accurate Information. All Fields Marked With <span class="text-red-500">*</span> Are Mandatory. Providing False Information Will Lead To Immediate Cancellation Of Your Candidature.
+            </p>
+        </div>
+
+        <form id="admissionForm" class="space-y-6" onsubmit="handleFormSubmit(event)">
+            
+            <div class="bg-white dark:bg-uniBlue rounded-xl shadow-sm border border-slate-200/60 dark:border-slate-800 overflow-hidden">
+                <div class="bg-slate-100 dark:bg-slate-800/50 px-6 py-3 border-b border-slate-200/60 dark:border-slate-700/50">
+                    <h3 class="text-sm font-bold uppercase tracking-wider text-uniBlue dark:text-uniGold"><i class="fa-solid fa-graduation-cap mr-1.5"></i> 1. Program Preferences</h3>
+                </div>
+                <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Degree Level <span class="text-red-500">*</span></label>
+                        <select required class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg p-2.5 text-sm focus:border-uniGold focus:outline-none transition">
+                            <option value="">Select Degree Level</option>
+                            <option value="BS">Bachelor's (BS / Undergraduate)</option>
+                            <option value="MS">Master's (MS / MPhil)</option>
+                            <option value="PhD">Doctorate (PhD)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Desired Program <span class="text-red-500">*</span></label>
+                        <select required class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg p-2.5 text-sm focus:border-uniGold focus:outline-none transition">
+                            <option value="">Select Department/Program</option>
+                            <option value="CS">BS Computer Science</option>
+                            <option value="SE">BS Software Engineering</option>
+                            <option value="IT">BS Information Technology</option>
+                            <option value="BBA">Bachelor of Business Administration (BBA)</option>
+                            <option value="Physics">BS Physics</option>
+                            <option value="English">BS English Literature</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white dark:bg-uniBlue rounded-xl shadow-sm border border-slate-200/60 dark:border-slate-800 overflow-hidden">
+                <div class="bg-slate-100 dark:bg-slate-800/50 px-6 py-3 border-b border-slate-200/60 dark:border-slate-700/50">
+                    <h3 class="text-sm font-bold uppercase tracking-wider text-uniBlue dark:text-uniGold"><i class="fa-solid fa-user mr-1.5"></i> 2. Personal Information</h3>
+                </div>
+                <div class="p-6 space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Applicant's Full Name <span class="text-red-500">*</span></label>
+                            <input type="text" placeholder="As per Matric Certificate" required class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg p-2.5 text-sm focus:border-uniGold focus:outline-none transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Father's Name <span class="text-red-500">*</span></label>
+                            <input type="text" placeholder="Father's Full Name" required class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg p-2.5 text-sm focus:border-uniGold focus:outline-none transition">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">CNIC / B-Form No. <span class="text-red-500">*</span></label>
+                            <input type="text" placeholder="35201-XXXXXXX-X" required class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg p-2.5 text-sm focus:border-uniGold focus:outline-none transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Date of Birth <span class="text-red-500">*</span></label>
+                            <input type="date" required class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg p-2.5 text-sm focus:border-uniGold focus:outline-none transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Gender <span class="text-red-500">*</span></label>
+                            <div class="flex items-center space-x-4 mt-2.5 text-sm">
+                                <label class="inline-flex items-center"><input type="radio" name="gender" class="text-uniGold focus:ring-uniGold" required> <span class="ml-1.5">Male</span></label>
+                                <label class="inline-flex items-center"><input type="radio" name="gender" class="text-uniGold focus:ring-uniGold"> <span class="ml-1.5">Female</span></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Email Address <span class="text-red-500">*</span></label>
+                            <input type="email" placeholder="example@domain.com" required class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg p-2.5 text-sm focus:border-uniGold focus:outline-none transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Mobile Number <span class="text-red-500">*</span></label>
+                            <input type="tel" placeholder="03XXXXXXXXX" required class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg p-2.5 text-sm focus:border-uniGold focus:outline-none transition">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Postal / Mailing Address <span class="text-red-500">*</span></label>
+                        <textarea rows="2" placeholder="Complete Street/House Address for dispatching roll number slips" required class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg p-2.5 text-sm focus:border-uniGold focus:outline-none transition"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white dark:bg-uniBlue rounded-xl shadow-sm border border-slate-200/60 dark:border-slate-800 overflow-hidden">
+                <div class="bg-slate-100 dark:bg-slate-800/50 px-6 py-3 border-b border-slate-200/60 dark:border-slate-700/50">
+                    <h3 class="text-sm font-bold uppercase tracking-wider text-uniBlue dark:text-uniGold"><i class="fa-solid fa-award mr-1.5"></i> 3. Academic Records</h3>
+                </div>
+                <div class="p-6 overflow-x-auto">
+                    <table class="w-full min-w-[600px] border-collapse text-left text-xs">
+                        <thead>
+                            <tr class="border-b border-slate-200 dark:border-slate-700 text-slate-500">
+                                <th class="pb-2 font-semibold">Degree / Certificate</th>
+                                <th class="pb-2 font-semibold">Board / University</th>
+                                <th class="pb-2 font-semibold">Passing Year</th>
+                                <th class="pb-2 font-semibold">Total Marks</th>
+                                <th class="pb-2 font-semibold">Obtained Marks</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+                            <tr>
+                                <td class="py-3 font-medium text-slate-900 dark:text-white">Matric / O-Level <span class="text-red-500">*</span></td>
+                                <td class="py-2 pr-2"><input type="text" placeholder="e.g. BISE Lahore" required class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded p-1.5 focus:outline-none focus:border-uniGold"></td>
+                                <td class="py-2 pr-2"><input type="number" placeholder="Year" required class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded p-1.5 focus:outline-none focus:border-uniGold"></td>
+                                <td class="py-2 pr-2"><input type="number" placeholder="Total" required class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded p-1.5 focus:outline-none focus:border-uniGold"></td>
+                                <td class="py-2"><input type="number" placeholder="Obtained" required class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded p-1.5 focus:outline-none focus:border-uniGold"></td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 font-medium text-slate-900 dark:text-white">Intermediate / A-Level <span class="text-red-500">*</span></td>
+                                <td class="py-2 pr-2"><input type="text" placeholder="e.g. BISE Lahore" required class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded p-1.5 focus:outline-none focus:border-uniGold"></td>
+                                <td class="py-2 pr-2"><input type="number" placeholder="Year" required class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded p-1.5 focus:outline-none focus:border-uniGold"></td>
+                                <td class="py-2 pr-2"><input type="number" placeholder="Total" required class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded p-1.5 focus:outline-none focus:border-uniGold"></td>
+                                <td class="py-2"><input type="number" placeholder="Obtained" required class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded p-1.5 focus:outline-none focus:border-uniGold"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="bg-white dark:bg-uniBlue rounded-xl shadow-sm border border-slate-200/60 dark:border-slate-800 overflow-hidden">
+                <div class="bg-slate-100 dark:bg-slate-800/50 px-6 py-3 border-b border-slate-200/60 dark:border-slate-700/50">
+                    <h3 class="text-sm font-bold uppercase tracking-wider text-uniBlue dark:text-uniGold"><i class="fa-solid fa-cloud-arrow-up mr-1.5"></i> 4. Document Attachments</h3>
+                </div>
+                <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Passport Size Photograph <span class="text-red-500">*</span></label>
+                        <input type="file" accept="image/*" required class="w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-slate-100 dark:file:bg-slate-800 file:text-uniBlue dark:file:text-slate-200 hover:file:bg-slate-200 dark:hover:file:bg-slate-700 cursor-pointer">
+                        <span class="text-[10px] text-slate-400 block mt-1">Blue background, max size 2MB (JPG/PNG).</span>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">CNIC / B-Form (Scanned Copy) <span class="text-red-500">*</span></label>
+                        <input type="file" accept="image/*,.pdf" required class="w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-slate-100 dark:file:bg-slate-800 file:text-uniBlue dark:file:text-slate-200 hover:file:bg-slate-200 dark:hover:file:bg-slate-700 cursor-pointer">
+                        <span class="text-[10px] text-slate-400 block mt-1">Clear frontend image, max size 2MB (PDF/JPG).</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex items-start space-x-2 bg-amber-50 dark:bg-amber-950/30 border border-amber-200/60 dark:border-amber-900/50 rounded-xl p-4">
+                <input type="checkbox" id="undertaking" required class="mt-1 text-uniGold focus:ring-uniGold rounded">
+                <label for="undertaking" class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed cursor-pointer select-none">
+                    I solemnly declare that all the entries made in this admission form are correct to the best of my knowledge. I abide by all the rules and regulations of Apex State University.
+                </label>
+            </div>
+
+            <div class="flex justify-end space-x-3">
+                <button type="reset" class="px-5 py-2.5 bg-slate-200 hover:bg-slate-300 text-slate-700 dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-300 rounded-lg text-sm font-medium transition">
+                    Reset Form
+                </button>
+                <button type="submit" class="px-6 py-2.5 bg-uniGold hover:bg-uniGold-dark text-white rounded-lg text-sm font-semibold shadow-md transition flex items-center">
+                
+                    <i class="fa-solid fa-paper-plane mr-1.5"></i>  Submit Application
+                </button>
+            </div>
+
+        </form>
+    </main>
+
+    <footer class="bg-uniBlue-dark text-slate-500 py-4 px-4 text-xs text-center border-t border-slate-900 mt-12">
+        <p>&copy; 2026 zoya Software engineering University Admissions Desk. System Secured via HTTPS Standard Protocols.</p>
+    </footer>
+
+    <script>
+        function handleFormSubmit(event) {
+            event.preventDefault(); // Default page submit/refresh ko rokne ke liye
+            
+            // Visual alert trigger for simulation
+            alert("Success! Your admission application has been registered into our database simulator. Your tracking ID is: ASU-" + Math.floor(100000 + Math.random() * 900000));
+            
+            document.getElementById('admissionForm').reset();
+        }
+        
+        // Auto Dark Mode Synchronizer from parent preference
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+</body>
+</html>
